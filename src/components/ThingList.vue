@@ -11,8 +11,7 @@
         
         <template v-if="hasThings">    
             <div class="border rounded-xl border-gray-600 mb-2 p-1"
-                :class="{ 'animate__animated animate__pulse border-red-300 hover:border-red-500 text-red-300 hover:text-red-500': flagged.includes(thing.id),
-                        'animate__animated animate__shakeX': isBeingRemoved.includes(thing.id) }" 
+                :class="getThingClass(thing.id)" 
                 v-for="(thing, index) in things"
                 :key="`thing-${index}`"
                 @click.stop="onClickDetails(thing.id)"
@@ -23,7 +22,7 @@
                         @click.stop="onClickRemove(thing.id)" 
                         class="border border-blue-300 hover:border-blue-500 rounded-full px-2 text-blue-300 hover:text-blue-500 mx-2 focus:outline-none"
                     >
-                            Remove
+                        Remove
                     </button>
                     
                     <button 
@@ -36,9 +35,7 @@
                     </button>
                 </div>
                 <thing-details :thing="thing" v-if="selectedId === thing.id" 
-                    :class="{ 'border-red-300': flagged.includes(thing.id),
-                                'border-gray-600': !flagged.includes(thing.id)
-                            }"
+                    :class="flagged.includes(thing.id) ? 'border-red-300' :'border-gray-600'"
                 >
                 </thing-details>
             </div>
@@ -129,6 +126,19 @@ export default {
             else {
                 this.flagged.push(id)
             }
+        },
+        getThingClass (id) {
+            let outputClass = ""
+
+            if (this.flagged.includes(id)){
+                outputClass = outputClass.concat("animate__animated animate__pulse border-red-300 hover:border-red-500 text-red-300 hover:text-red-500 ")
+            }
+
+            if (this.isBeingRemoved.includes(id)){
+                outputClass = outputClass.concat("animate__animated animate__shakeX")
+            }
+
+            return outputClass
         }
     }
 }

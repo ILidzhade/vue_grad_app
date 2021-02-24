@@ -2,10 +2,12 @@
     <div class="text-sm text-gray-600 m-2 border rounded-xl py-2">
         <b> Details: </b>
         <div class="flex justify-center">
-            <div class="text-gray-400 mr-2">Name:</div> <div>{{ thing.name }}</div>
+            <div class="text-gray-400 mr-2">Name:</div>
+            <div>{{ thing.name }}</div>
         </div>
         <div class="flex justify-center">
-            <div class="text-gray-400 mr-2">ID:</div> <div>{{ thing.id }}</div>
+            <div class="text-gray-400 mr-2">ID:</div>
+            <div>{{ thing.id }}</div>
         </div>
         <div class="flex justify-center">
             <div class="text-gray-400">Keywords:</div>
