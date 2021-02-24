@@ -1,17 +1,16 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="container mx-auto lg:w-2/5 sm:w-1/2 border border-gray-200 rounded-xl p-2">
+    <thing-list></thing-list>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ThingList from './components/ThingList'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ThingList
   }
 }
 </script>
@@ -25,4 +24,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>
